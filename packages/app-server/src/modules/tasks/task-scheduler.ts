@@ -26,24 +26,26 @@ function createTaskScheduler({
       return undefined;
     }
 
-    const task = cron.schedule(cronSchedule, () => {
+    // createTask returns a stopped task, it only runs once started
+    const task = cron.createTask(cronSchedule, () => {
       taskDefinition.run({ ...tasksArgs, config });
-    }, {
-      scheduled: false,
-      runOnInit: runOnStartup,
     });
 
     logger.info({ taskName: taskDefinition.taskName, cronSchedule }, 'Task registered');
 
-    return { job: task, taskName: taskDefinition.taskName };
+    return { job: task, taskName: taskDefinition.taskName, runOnStartup };
   }).filter(Boolean);
 
   return {
     scheduledTasks,
     start() {
-      scheduledTasks.forEach(({ taskName, job }) => {
+      scheduledTasks.forEach(({ taskName, job, runOnStartup }) => {
         job.start();
         logger.info({ taskName }, 'Task scheduled');
+
+        if (runOnStartup) {
+          job.execute();
+        }
       });
     },
   };
