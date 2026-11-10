@@ -177,7 +177,7 @@ export const Navbar: Component = () => {
                 {t('navbar.settings.cli')}
               </DropdownMenuItem>
 
-              <DropdownMenuItem as="a" class="flex items-center gap-2 cursor-pointer" target="_blank" href="https://github.com/CorentinTh/enclosed/issues/new/choose" rel="noopener noreferrer">
+              <DropdownMenuItem as="a" class="flex items-center gap-2 cursor-pointer" target="_blank" href="https://github.com/stigvoss/enclosed/issues/new/choose" rel="noopener noreferrer">
                 <div class="i-tabler-bug text-lg"></div>
                 {t('navbar.settings.report-bug')}
               </DropdownMenuItem>
