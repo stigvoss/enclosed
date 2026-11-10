@@ -107,7 +107,7 @@ export const Navbar: Component = () => {
             </Button>
           )}
 
-          <Button variant="ghost" class="text-lg px-0 size-9 hidden md:inline-flex" as={A} href="https://github.com/CorentinTh/enclosed" target="_blank" rel="noopener noreferrer" aria-label={t('navbar.github-repository')}>
+          <Button variant="ghost" class="text-lg px-0 size-9 hidden md:inline-flex" as={A} href="https://github.com/stigvoss/enclosed" target="_blank" rel="noopener noreferrer" aria-label={t('navbar.github-repository')}>
             <div class="i-tabler-brand-github"></div>
           </Button>
 
@@ -139,7 +139,7 @@ export const Navbar: Component = () => {
             <DropdownMenuContent class="w-46">
 
               {/* Mobile only items */}
-              <DropdownMenuItem as="a" class="flex items-center gap-2 cursor-pointer md:hidden" target="_blank" href="https://github.com/CorentinTh/enclosed" rel="noopener noreferrer">
+              <DropdownMenuItem as="a" class="flex items-center gap-2 cursor-pointer md:hidden" target="_blank" href="https://github.com/stigvoss/enclosed" rel="noopener noreferrer">
                 <div class="i-tabler-brand-github text-lg"></div>
                 {t('navbar.github')}
               </DropdownMenuItem>
@@ -177,7 +177,7 @@ export const Navbar: Component = () => {
                 {t('navbar.settings.cli')}
               </DropdownMenuItem>
 
-              <DropdownMenuItem as="a" class="flex items-center gap-2 cursor-pointer" target="_blank" href="https://github.com/CorentinTh/enclosed/issues/new/choose" rel="noopener noreferrer">
+              <DropdownMenuItem as="a" class="flex items-center gap-2 cursor-pointer" target="_blank" href="https://github.com/stigvoss/enclosed/issues/new/choose" rel="noopener noreferrer">
                 <div class="i-tabler-bug text-lg"></div>
                 {t('navbar.settings.report-bug')}
               </DropdownMenuItem>

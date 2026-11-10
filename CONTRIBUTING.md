@@ -10,7 +10,7 @@ This project adheres to the [Contributor Covenant](https://www.contributor-coven
 
 ### Reporting Issues
 
-If you find a bug, have a feature request, or need help, feel free to open an issue in the [GitHub Issue Tracker](https://github.com/CorentinTh/enclosed/issues). You're also welcome to comment on existing issues.
+If you find a bug, have a feature request, or need help, feel free to open an issue in the [GitHub Issue Tracker](https://github.com/stigvoss/enclosed/issues). You're also welcome to comment on existing issues.
 
 ### Submitting Pull Requests
 
