@@ -4,6 +4,7 @@ This is a fork of [CorentinTh/enclosed](https://github.com/CorentinTh/enclosed).
 
 | Feature | Description | PR |
 | ------- | ----------- | -- |
+| GHCR publishing | Docker release workflow publishes only to `ghcr.io/stigvoss/enclosed` (amd64/arm64, standard and rootless); Docker Hub and npm publishing removed. README and `docker-compose.yml` point at the fork image. | [#2](https://github.com/stigvoss/enclosed/pull/2) |
 | Inline image preview | Preview PNG, JPEG, WebP, GIF and AVIF attachments in an accessible modal dialog on the note view page, entirely in memory after client-side decryption. SVG is deliberately excluded. | [#1](https://github.com/stigvoss/enclosed/pull/1) |
 
 <p align="center">
@@ -64,7 +65,7 @@ A live instance is available at [enclosed.cc](https://enclosed.cc).
 You can quickly run the application using Docker.
 
 ```bash
-docker run -d --name enclosed --restart unless-stopped -p 8787:8787 corentinth/enclosed
+docker run -d --name enclosed --restart unless-stopped -p 8787:8787 ghcr.io/stigvoss/enclosed
 ```
 
 Docker images support AMD64 (`linux/amd64`) and ARM64 (`linux/arm64`). **v1.16.1 is the last release supporting ARMv7 (`linux/arm/v7`)**. See [supported architectures](https://docs.enclosed.cc/self-hosting/docker#supported-architectures) for details.

@@ -1,6 +1,6 @@
 services:
   enclosed:
-    image: corentinth/enclosed
+    image: ghcr.io/stigvoss/enclosed
     ports:
       - 8787:8787
     volumes:
