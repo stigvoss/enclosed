@@ -56,7 +56,7 @@
     "tsx": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
-    "wrangler": "^3.114.17",
+    "wrangler": "^4.159.0",
     "zx": "^8.8.5"
   }
 }
