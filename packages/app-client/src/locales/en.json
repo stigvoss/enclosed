@@ -33,6 +33,7 @@
   },
   "footer": {
     "crafted-by": "Crafted by",
+    "forked-by": "forked by",
     "source-code": "Source code available on",
     "github": "GitHub",
     "version": "Version"

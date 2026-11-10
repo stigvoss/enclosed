@@ -215,23 +215,27 @@ export const Footer: Component = () => {
         {t('footer.crafted-by')}
         {' '}
         <Button variant="link" as="a" href="https://corentin.tech" target="_blank" class="p-0 text-muted-foreground underline hover:text-primary transition font-normal h-auto">Corentin Thomasset</Button>
+        {', '}
+        {t('footer.forked-by')}
+        {' '}
+        <Button variant="link" as="a" href="https://github.com/stigvoss" target="_blank" class="p-0 text-muted-foreground underline hover:text-primary transition font-normal h-auto">Stig Voss</Button>
         .
       </div>
       <div>
         {t('footer.source-code')}
         {' '}
-        <Button variant="link" as="a" href="https://github.com/CorentinTh/enclosed" target="_blank" class="p-0 text-muted-foreground underline hover:text-primary transition font-normal h-auto">{t('footer.github')}</Button>
+        <Button variant="link" as="a" href="https://github.com/stigvoss/enclosed" target="_blank" class="p-0 text-muted-foreground underline hover:text-primary transition font-normal h-auto">{t('footer.github')}</Button>
         .
       </div>
 
       <div>
         {t('footer.version')}
         {' '}
-        <Button variant="link" as="a" href={`https://github.com/CorentinTh/enclosed/tree/v${buildTimeConfig.enclosedVersion}`} target="_blank" class="p-0 text-muted-foreground underline hover:text-primary transition font-normal h-auto">
+        <Button variant="link" as="a" href={`https://github.com/stigvoss/enclosed/tree/v${buildTimeConfig.enclosedVersion}`} target="_blank" class="p-0 text-muted-foreground underline hover:text-primary transition font-normal h-auto">
           v
           {buildTimeConfig.enclosedVersion}
         </Button>
-
+        .
       </div>
     </div>
   );
