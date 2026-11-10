@@ -18,7 +18,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "dev": "tsx ./src/cli.ts",
@@ -33,9 +33,9 @@
   },
   "dependencies": {
     "@enclosed/lib": "workspace:*",
-    "@inquirer/prompts": "^6.0.1",
-    "citty": "^0.1.6",
-    "conf": "^13.1.0",
+    "@inquirer/prompts": "^8.7.5",
+    "citty": "^0.2.2",
+    "conf": "^16.0.0",
     "lodash-es": "catalog:",
     "ora": "^8.2.0",
     "picocolors": "^1.1.1",
