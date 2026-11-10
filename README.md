@@ -1,3 +1,11 @@
+## Fork changes
+
+This is a fork of [CorentinTh/enclosed](https://github.com/CorentinTh/enclosed). Features added on top of upstream are logged here, newest first.
+
+| Feature | Description | PR |
+| ------- | ----------- | -- |
+| Inline image preview | Preview PNG, JPEG, WebP, GIF and AVIF attachments in an accessible modal dialog on the note view page, entirely in memory after client-side decryption. SVG is deliberately excluded. | [#1](https://github.com/stigvoss/enclosed/pull/1) |
+
 <p align="center">
 <picture>
     <source srcset="./.github/icon-dark.png" media="(prefers-color-scheme: light)">

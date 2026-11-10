@@ -6,30 +6,24 @@ export const ImagePreviewDialog: Component<{ file: File; onClose: () => void }> 
   const { t } = useI18n();
   // The file is decrypted in memory only, the blob URL is never persisted and revoked on close
   const url = URL.createObjectURL(props.file);
+  let dialogRef: HTMLDialogElement | undefined;
 
-  const onKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      props.onClose();
-    }
-  };
-
-  onMount(() => document.addEventListener('keydown', onKeyDown));
-  onCleanup(() => {
-    document.removeEventListener('keydown', onKeyDown);
-    URL.revokeObjectURL(url);
-  });
+  // A native modal dialog makes the background inert, traps Tab/Shift+Tab,
+  // closes on Escape and restores focus to the previously focused element on close
+  onMount(() => dialogRef?.showModal());
+  onCleanup(() => URL.revokeObjectURL(url));
 
   return (
-    <div
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-      role="dialog"
-      aria-modal="true"
+    <dialog
+      ref={dialogRef}
+      class="fixed inset-0 z-50 m-0 h-full max-h-none w-full max-w-none items-center justify-center bg-black/80 p-4 open:flex backdrop:bg-transparent"
       aria-label={props.file.name}
-      onClick={() => props.onClose()}
+      onClose={() => props.onClose()}
+      onClick={event => event.target === event.currentTarget && dialogRef?.close()}
     >
       <button
         class="absolute top-4 right-4 text-white text-3xl cursor-pointer"
-        onClick={() => props.onClose()}
+        onClick={() => dialogRef?.close()}
         aria-label={t('view.assets.close-preview')}
       >
         <div class="i-tabler-x"></div>
@@ -39,8 +33,7 @@ export const ImagePreviewDialog: Component<{ file: File; onClose: () => void }> 
         alt={props.file.name}
         referrerpolicy="no-referrer"
         class="max-w-full max-h-full object-contain"
-        onClick={event => event.stopPropagation()}
       />
-    </div>
+    </dialog>
   );
 };

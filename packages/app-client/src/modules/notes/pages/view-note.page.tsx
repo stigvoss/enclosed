@@ -401,8 +401,8 @@ export const ViewNotePage: Component = () => {
         </Match>
       </Switch>
 
-      <Show when={previewedFile()}>
-        {file => <ImagePreviewDialog file={file()} onClose={() => setPreviewedFile(undefined)} />}
+      <Show when={previewedFile()} keyed>
+        {file => <ImagePreviewDialog file={file} onClose={() => setPreviewedFile(undefined)} />}
       </Show>
     </div>
   );
