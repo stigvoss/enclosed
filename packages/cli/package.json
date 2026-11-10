@@ -49,7 +49,7 @@
     "eslint": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:",
-    "unbuild": "^2.0.0",
+    "unbuild": "^3.6.1",
     "vitest": "catalog:"
   }
 }
