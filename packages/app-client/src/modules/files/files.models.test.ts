@@ -1,7 +1,7 @@
 import { icons as tablerIconSet } from '@iconify-json/tabler';
 import { values } from 'lodash-es';
 import { describe, expect, test } from 'vitest';
-import { getFileIcon, iconByFileType } from './files.models';
+import { getFileIcon, iconByFileType, isPreviewableImage } from './files.models';
 
 describe('files models', () => {
   describe('iconByFileType', () => {
@@ -77,6 +77,17 @@ describe('files models', () => {
       const icon = getFileIcon({ file, iconsMap });
 
       expect(icon).to.eql('i-tabler-file-type-html');
+    });
+  });
+
+  describe('isPreviewableImage', () => {
+    test('raster images are previewable', () => {
+      expect(isPreviewableImage({ file: new File([''], 'a.png', { type: 'image/png' }) })).toBe(true);
+    });
+
+    test('svg and non-image files are not previewable', () => {
+      expect(isPreviewableImage({ file: new File([''], 'a.svg', { type: 'image/svg+xml' }) })).toBe(false);
+      expect(isPreviewableImage({ file: new File([''], 'a.pdf', { type: 'application/pdf' }) })).toBe(false);
     });
   });
 });

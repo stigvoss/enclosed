@@ -40,3 +40,10 @@ function getFileIcon({ file, iconsMap = iconByFileType }: { file: File; iconsMap
 
   return icon;
 }
+
+// SVG is deliberately excluded as it can embed scripts
+const previewableImageTypes = ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'image/avif'];
+
+export function isPreviewableImage({ file }: { file: File }) {
+  return previewableImageTypes.includes(file.type);
+}

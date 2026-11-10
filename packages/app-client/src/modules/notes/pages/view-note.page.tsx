@@ -1,5 +1,5 @@
 import { authStore } from '@/modules/auth/auth.store';
-import { getFileIcon } from '@/modules/files/files.models';
+import { getFileIcon, isPreviewableImage } from '@/modules/files/files.models';
 import { useI18n } from '@/modules/i18n/i18n.provider';
 import { isHttpErrorWithCode, isRateLimitError } from '@/modules/shared/http/http-errors';
 import { cn } from '@/modules/shared/style/cn';
@@ -13,6 +13,7 @@ import { decryptNote, noteAssetsToFiles, parseNoteUrlHashFragment } from '@enclo
 import { useLocation, useNavigate, useParams } from '@solidjs/router';
 import JSZip from 'jszip';
 import { type Component, createSignal, type JSX, Match, onMount, Show, Switch } from 'solid-js';
+import { ImagePreviewDialog } from '../components/image-preview-dialog';
 import { fetchNoteById, fetchNoteExists } from '../notes.services';
 
 const RequestPasswordForm: Component<{ onPasswordEntered: (args: { password: string }) => void; getIsPasswordInvalid: () => boolean; setIsPasswordInvalid: (value: boolean) => void }> = (props) => {
@@ -71,6 +72,7 @@ export const ViewNotePage: Component = () => {
   const [getDecryptedNote, setDecryptedNote] = createSignal<string | null>(null);
   const [getIsPasswordInvalid, setIsPasswordInvalid] = createSignal(false);
   const [fileAssets, setFileAssets] = createSignal<File[]>([]);
+  const [previewedFile, setPreviewedFile] = createSignal<File | undefined>(undefined);
   const [isDownloadingAllLoading, setIsDownloadingAllLoading] = createSignal(false);
   const [getShowWarnForNoteDeletion, setShowWarnForNoteDeletion] = createSignal(false);
   const [getResolveWarnForNoteDeletion, setResolveWarnForNoteDeletion] = createSignal<(() => void) | null>(null);
@@ -376,7 +378,13 @@ export const ViewNotePage: Component = () => {
                               {formatBytes({ bytes: file.size })}
                             </div>
                           </div>
-                          <div class="ml-auto">
+                          <div class="ml-auto flex gap-2">
+                            {isPreviewableImage({ file }) && (
+                              <Button variant="secondary" onClick={() => setPreviewedFile(file)}>
+                                <div class="i-tabler-eye mr-2 text-lg"></div>
+                                {t('view.assets.preview')}
+                              </Button>
+                            )}
                             <Button variant="secondary" onClick={() => downloadFile({ file })}>
                               <div class="i-tabler-download mr-2 text-lg"></div>
                               {t('view.assets.download')}
@@ -392,6 +400,10 @@ export const ViewNotePage: Component = () => {
           </div>
         </Match>
       </Switch>
+
+      <Show when={previewedFile()}>
+        {file => <ImagePreviewDialog file={file()} onClose={() => setPreviewedFile(undefined)} />}
+      </Show>
     </div>
   );
 };
