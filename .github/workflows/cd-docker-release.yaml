@@ -1,4 +1,4 @@
-name: Release new versions
+name: Release Docker images
 
 on:
   push:
@@ -13,18 +13,6 @@ on:
         required: true
         type: string
 
-      publish_lib:
-        description: 'Publish lib to npm'
-        required: true
-        type: boolean
-        default: true
-
-      publish_cli:
-        description: 'Publish CLI to npm'
-        required: true
-        type: boolean
-        default: true
-
       release_docker:
         description: 'Release Docker images'
         required: true
@@ -35,84 +23,6 @@ permissions:
   contents: read
 
 jobs:
-  publish-crypto:
-    name: Publish @enclosed/crypto to npm
-    if: ${{ github.event_name == 'push' || inputs.publish_lib }}
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    defaults:
-      run:
-        working-directory: packages/crypto
-
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && format('refs/tags/v{0}', inputs.release_version) || github.sha }}
-          persist-credentials: false
-
-      - name: Setup Node.js, pnpm, and dependencies
-        uses: pnpm/setup@fbda4c85fc2e1e08721cd8763afea8f48d60f024 # v3.0.0
-        with:
-          cache: true
-          require-lockfile: true
-
-      - name: Publish @enclosed/crypto to npm
-        run: pnpm publish --access public --no-git-checks --provenance
-
-  publish-lib:
-    name: Publish @enclosed/lib to npm
-    if: ${{ github.event_name == 'push' || inputs.publish_lib }}
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    defaults:
-      run:
-        working-directory: packages/lib
-
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && format('refs/tags/v{0}', inputs.release_version) || github.sha }}
-          persist-credentials: false
-
-      - name: Setup Node.js, pnpm, and dependencies
-        uses: pnpm/setup@fbda4c85fc2e1e08721cd8763afea8f48d60f024 # v3.0.0
-        with:
-          cache: true
-          require-lockfile: true
-
-      - name: Publish @enclosed/lib to npm
-        run: pnpm publish --access public --no-git-checks --provenance
-
-  publish-cli:
-    name: Publish @enclosed/cli to npm
-    if: ${{ github.event_name == 'push' || inputs.publish_cli }}
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    defaults:
-      run:
-        working-directory: packages/cli
-
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-        with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && format('refs/tags/v{0}', inputs.release_version) || github.sha }}
-          persist-credentials: false
-
-      - name: Setup Node.js, pnpm, and dependencies
-        uses: pnpm/setup@fbda4c85fc2e1e08721cd8763afea8f48d60f024 # v3.0.0
-        with:
-          cache: true
-          require-lockfile: true
-
-      - name: Publish @enclosed/cli to npm
-        run: pnpm publish --access public --no-git-checks --provenance
-
   docker-release:
     name: Release Docker images
     if: ${{ github.event_name == 'push' || inputs.release_docker }}
@@ -144,12 +54,6 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3.7.0
 
@@ -164,10 +68,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            corentinth/enclosed:latest
-            corentinth/enclosed:${{ env.RELEASE_VERSION }}
-            ghcr.io/corentinth/enclosed:latest
-            ghcr.io/corentinth/enclosed:${{ env.RELEASE_VERSION}}
+            ghcr.io/${{ github.repository_owner }}/enclosed:latest
+            ghcr.io/${{ github.repository_owner }}/enclosed:${{ env.RELEASE_VERSION }}
 
       - name: Build and push rootless Docker image
         uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6.19.2
@@ -177,7 +79,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            corentinth/enclosed:latest-rootless
-            corentinth/enclosed:${{ env.RELEASE_VERSION }}-rootless
-            ghcr.io/corentinth/enclosed:latest-rootless
-            ghcr.io/corentinth/enclosed:${{ env.RELEASE_VERSION }}-rootless
+            ghcr.io/${{ github.repository_owner }}/enclosed:latest-rootless
+            ghcr.io/${{ github.repository_owner }}/enclosed:${{ env.RELEASE_VERSION }}-rootless
