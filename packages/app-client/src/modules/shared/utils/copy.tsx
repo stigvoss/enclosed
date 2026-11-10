@@ -9,7 +9,8 @@ export function useCopy() {
   const copy = ({ text }: { text: string }) => {
     navigator.clipboard.writeText(text).then(() => {
       setIsJustCopied(true);
-      setTimeout(setIsJustCopied, 2000, false);
+      // eslint-disable-next-line e18e/prefer-timer-args -- keep the setter call explicit
+      setTimeout(() => setIsJustCopied(false), 2000);
     });
   };
 

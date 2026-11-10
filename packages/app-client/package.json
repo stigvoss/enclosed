@@ -10,7 +10,7 @@
     "url": "https://github.com/CorentinTh/enclosed"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "start": "vite",
