@@ -1,7 +1,7 @@
 import type { ComponentProps, ParentComponent } from 'solid-js';
+import { createSignal } from 'solid-js';
 import { useI18n } from '@/modules/i18n/i18n.provider';
 import { Button } from '@/modules/ui/components/button';
-import { createSignal } from 'solid-js';
 
 export function useCopy() {
   const [getIsJustCopied, setIsJustCopied] = createSignal(false);
@@ -9,7 +9,7 @@ export function useCopy() {
   const copy = ({ text }: { text: string }) => {
     navigator.clipboard.writeText(text).then(() => {
       setIsJustCopied(true);
-      setTimeout(() => setIsJustCopied(false), 2000);
+      setTimeout(setIsJustCopied, 2000, false);
     });
   };
 

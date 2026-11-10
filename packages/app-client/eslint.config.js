@@ -5,7 +5,12 @@ export default antfu({
     semi: true,
   },
 
+  // The catalog is not enforced in package.json files
+  pnpm: false,
+
   rules: {
+    // Would reformat most of the code base without improving it
+    'antfu/reasonable-newline': 'off',
     // To allow export on top of files
     'ts/no-use-before-define': ['error', { allowNamedExports: true, functions: false }],
     'curly': ['error', 'all'],

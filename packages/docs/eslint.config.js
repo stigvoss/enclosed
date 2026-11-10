@@ -5,7 +5,14 @@ export default antfu({
     semi: true,
   },
 
+  // The catalog is not enforced in package.json files
+  pnpm: false,
+
   rules: {
+    // Would reformat most of the code base without improving it
+    'antfu/reasonable-newline': 'off',
+    // VitePress data loaders rely on top-level await
+    'antfu/no-top-level-await': 'off',
     // To allow export on top of files
     'ts/no-use-before-define': ['error', { allowNamedExports: true, functions: false }],
     'curly': ['error', 'all'],

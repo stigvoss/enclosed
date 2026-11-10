@@ -1,3 +1,9 @@
+import type { Component, JSX } from 'solid-js';
+import { formatBytes, safely, safelySync } from '@corentinth/chisels';
+import { decryptNote, noteAssetsToFiles, parseNoteUrlHashFragment } from '@enclosed/lib';
+import { useLocation, useNavigate, useParams } from '@solidjs/router';
+import JSZip from 'jszip';
+import { createSignal, Match, onMount, Show, Switch } from 'solid-js';
 import { authStore } from '@/modules/auth/auth.store';
 import { getFileIcon, isPreviewableImage } from '@/modules/files/files.models';
 import { useI18n } from '@/modules/i18n/i18n.provider';
@@ -8,11 +14,6 @@ import { Alert, AlertDescription } from '@/modules/ui/components/alert';
 import { Button } from '@/modules/ui/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/modules/ui/components/card';
 import { TextField, TextFieldLabel, TextFieldRoot } from '@/modules/ui/components/textfield';
-import { formatBytes, safely, safelySync } from '@corentinth/chisels';
-import { decryptNote, noteAssetsToFiles, parseNoteUrlHashFragment } from '@enclosed/lib';
-import { useLocation, useNavigate, useParams } from '@solidjs/router';
-import JSZip from 'jszip';
-import { type Component, createSignal, type JSX, Match, onMount, Show, Switch } from 'solid-js';
 import { ImagePreviewDialog } from '../components/image-preview-dialog';
 import { fetchNoteById, fetchNoteExists } from '../notes.services';
 

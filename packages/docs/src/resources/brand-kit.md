@@ -27,10 +27,10 @@ We offer Enclosed's logo in dark and light modes, in multiple formats suitable f
 
 | Variants                    | Preview                                                                     | Download Links                                                                                                |
 |-----------------------------| ----------------------------------------------------------------------------| :------------------------------------------------------------------------------------------------------------:|
-| Dark logo with background   | [<img src="/logos/logo-dark-bg.png" width="50">](/logos/logo-dark-bg.png)   | <a href="/logos/logo-dark-bg.png" download> PNG </a> - <a href="/logos/logo-dark-bg.svg" download> SVG </a>   |
-| Dark logo solo              | [<img src="/logos/logo-dark.png" width="50">](/logos/logo-dark.png)         | <a href="/logos/logo-dark.png" download> PNG </a> - <a href="/logos/logo-dark.svg" download> SVG </a>         |
-| Light logo with background  | [<img src="/logos/logo-light-bg.png" width="50">](/logos/logo-light-bg.png) | <a href="/logos/logo-light-bg.png" download> PNG </a> - <a href="/logos/logo-light-bg.svg" download> SVG </a> |
-| Light logo solo             | [<img src="/logos/logo-light.png" width="50">](/logos/logo-light.png)       | <a href="/logos/logo-light.png" download> PNG </a> - <a href="/logos/logo-light.svg" download> SVG </a>       |
+| Dark logo with background   | [<img src="/logos/logo-dark-bg.png" alt="Dark logo with background" width="50">](/logos/logo-dark-bg.png)   | <a href="/logos/logo-dark-bg.png" download> PNG </a> - <a href="/logos/logo-dark-bg.svg" download> SVG </a>   |
+| Dark logo solo              | [<img src="/logos/logo-dark.png" alt="Dark logo" width="50">](/logos/logo-dark.png)         | <a href="/logos/logo-dark.png" download> PNG </a> - <a href="/logos/logo-dark.svg" download> SVG </a>         |
+| Light logo with background  | [<img src="/logos/logo-light-bg.png" alt="Light logo with background" width="50">](/logos/logo-light-bg.png) | <a href="/logos/logo-light-bg.png" download> PNG </a> - <a href="/logos/logo-light-bg.svg" download> SVG </a> |
+| Light logo solo             | [<img src="/logos/logo-light.png" alt="Light logo" width="50">](/logos/logo-light.png)       | <a href="/logos/logo-light.png" download> PNG </a> - <a href="/logos/logo-light.svg" download> SVG </a>       |
 
 ## Visual Assets
 

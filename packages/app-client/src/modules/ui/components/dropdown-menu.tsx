@@ -11,9 +11,9 @@ import type {
 } from '@kobalte/core/dropdown-menu';
 import type { PolymorphicProps } from '@kobalte/core/polymorphic';
 import type { ComponentProps, ParentProps, ValidComponent } from 'solid-js';
-import { cn } from '@/modules/shared/style/cn';
 import { DropdownMenu as DropdownMenuPrimitive } from '@kobalte/core/dropdown-menu';
 import { mergeProps, splitProps } from 'solid-js';
+import { cn } from '@/modules/shared/style/cn';
 
 export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 export const DropdownMenuGroup = DropdownMenuPrimitive.Group;
@@ -26,8 +26,8 @@ export function DropdownMenu(props: DropdownMenuRootProps) {
   return <DropdownMenuPrimitive {...merge} />;
 }
 
-type dropdownMenuContentProps<T extends ValidComponent = 'div'> =
-  DropdownMenuContentProps<T> & {
+type dropdownMenuContentProps<T extends ValidComponent = 'div'>
+  = DropdownMenuContentProps<T> & {
     class?: string;
   };
 
@@ -49,8 +49,8 @@ export function DropdownMenuContent<T extends ValidComponent = 'div'>(props: Pol
   );
 }
 
-type dropdownMenuItemProps<T extends ValidComponent = 'div'> =
-  DropdownMenuItemProps<T> & {
+type dropdownMenuItemProps<T extends ValidComponent = 'div'>
+  = DropdownMenuItemProps<T> & {
     class?: string;
     inset?: boolean;
   };
@@ -73,8 +73,8 @@ export function DropdownMenuItem<T extends ValidComponent = 'div'>(props: Polymo
   );
 }
 
-type dropdownMenuGroupLabelProps<T extends ValidComponent = 'span'> =
-  DropdownMenuGroupLabelProps<T> & {
+type dropdownMenuGroupLabelProps<T extends ValidComponent = 'span'>
+  = DropdownMenuGroupLabelProps<T> & {
     class?: string;
   };
 
@@ -92,8 +92,8 @@ export function DropdownMenuGroupLabel<T extends ValidComponent = 'span'>(props:
   );
 }
 
-type dropdownMenuItemLabelProps<T extends ValidComponent = 'div'> =
-  DropdownMenuItemLabelProps<T> & {
+type dropdownMenuItemLabelProps<T extends ValidComponent = 'div'>
+  = DropdownMenuItemLabelProps<T> & {
     class?: string;
   };
 
@@ -111,8 +111,8 @@ export function DropdownMenuItemLabel<T extends ValidComponent = 'div'>(props: P
   );
 }
 
-type dropdownMenuSeparatorProps<T extends ValidComponent = 'hr'> =
-  DropdownMenuSeparatorProps<T> & {
+type dropdownMenuSeparatorProps<T extends ValidComponent = 'hr'>
+  = DropdownMenuSeparatorProps<T> & {
     class?: string;
   };
 
@@ -140,7 +140,7 @@ export function DropdownMenuShortcut(props: ComponentProps<'span'>) {
   );
 }
 
-type dropdownMenuSubTriggerProps<T extends ValidComponent = 'div'> = ParentProps< DropdownMenuSubTriggerProps<T> & { class?: string }>;
+type dropdownMenuSubTriggerProps<T extends ValidComponent = 'div'> = ParentProps<DropdownMenuSubTriggerProps<T> & { class?: string }>;
 
 export function DropdownMenuSubTrigger<T extends ValidComponent = 'div'>(props: PolymorphicProps<T, dropdownMenuSubTriggerProps<T>>) {
   const [local, rest] = splitProps(props as dropdownMenuSubTriggerProps, [
@@ -178,8 +178,8 @@ export function DropdownMenuSubTrigger<T extends ValidComponent = 'div'>(props: 
   );
 }
 
-type dropdownMenuSubContentProps<T extends ValidComponent = 'div'> =
-  DropdownMenuSubTriggerProps<T> & {
+type dropdownMenuSubContentProps<T extends ValidComponent = 'div'>
+  = DropdownMenuSubTriggerProps<T> & {
     class?: string;
   };
 
@@ -201,7 +201,7 @@ export function DropdownMenuSubContent<T extends ValidComponent = 'div'>(props: 
   );
 }
 
-type dropdownMenuCheckboxItemProps<T extends ValidComponent = 'div'> = ParentProps< DropdownMenuCheckboxItemProps<T> & { class?: string } >;
+type dropdownMenuCheckboxItemProps<T extends ValidComponent = 'div'> = ParentProps<DropdownMenuCheckboxItemProps<T> & { class?: string }>;
 
 export function DropdownMenuCheckboxItem<T extends ValidComponent = 'div'>(props: PolymorphicProps<T, dropdownMenuCheckboxItemProps<T>>) {
   const [local, rest] = splitProps(props as dropdownMenuCheckboxItemProps, [

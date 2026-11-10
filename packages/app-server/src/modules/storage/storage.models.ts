@@ -6,6 +6,6 @@ function defineStorage<InitialsArgs = void>(fn: (args: InitialsArgs) => { storag
   return fn;
 }
 
-function defineBindableStorageFactory<InitialsArgs = void >(fn: (args: InitialsArgs) => { storageFactory: BindableStorageFactory }) {
+function defineBindableStorageFactory<InitialsArgs = void>(fn: (args: InitialsArgs) => { storageFactory: BindableStorageFactory }) {
   return fn;
 }

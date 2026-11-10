@@ -7,7 +7,7 @@ export { createConfigBindings, deleteConfig, getConfig, resetConfig, setConfig }
 type ConfigKey = keyof typeof configDefinition | (string & {});
 const config = new Conf<Record<ConfigKey, string>>({ projectName: 'enclosed' });
 
-function setConfig({ key, value }: { key: ConfigKey ; value: string }) {
+function setConfig({ key, value }: { key: ConfigKey; value: string }) {
   const definition = configDefinition[key as keyof typeof configDefinition];
 
   if (!definition) {

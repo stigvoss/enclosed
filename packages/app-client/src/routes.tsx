@@ -1,4 +1,5 @@
-import { A, type RouteDefinition } from '@solidjs/router';
+import type { RouteDefinition } from '@solidjs/router';
+import { A } from '@solidjs/router';
 import { LoginPage } from './modules/auth/pages/login.page';
 import { getConfig } from './modules/config/config.provider';
 import { NOTE_ID_REGEX } from './modules/notes/notes.constants';

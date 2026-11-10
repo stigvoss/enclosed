@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
-import { useI18n } from '@/modules/i18n/i18n.provider';
 import { onCleanup, onMount } from 'solid-js';
+import { useI18n } from '@/modules/i18n/i18n.provider';
 
 export const ImagePreviewDialog: Component<{ file: File; onClose: () => void }> = (props) => {
   const { t } = useI18n();

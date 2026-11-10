@@ -1,10 +1,11 @@
+import type { Component } from 'solid-js';
+import { createSignal } from 'solid-js';
 import { useI18n } from '@/modules/i18n/i18n.provider';
 import { Button } from '@/modules/ui/components/button';
 import { TextField } from '@/modules/ui/components/textfield';
-import { type Component, createSignal } from 'solid-js';
 import { createRandomPassword } from '../notes.models';
 
-export const NotePasswordField: Component<{ getPassword: () => string; setPassword: (value: string) => void; dataTestId?: string } > = (props) => {
+export const NotePasswordField: Component<{ getPassword: () => string; setPassword: (value: string) => void; dataTestId?: string }> = (props) => {
   const [getShowPassword, setShowPassword] = createSignal(false);
   const { t } = useI18n();
 

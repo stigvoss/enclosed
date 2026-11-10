@@ -1,7 +1,8 @@
+import type { Component, ComponentProps, ParentComponent } from 'solid-js';
+import { createSignal, onCleanup, splitProps } from 'solid-js';
 import { useI18n } from '@/modules/i18n/i18n.provider';
 import { cn } from '@/modules/shared/style/cn';
 import { Button } from '@/modules/ui/components/button';
-import { type Component, type ComponentProps, createSignal, onCleanup, type ParentComponent, splitProps } from 'solid-js';
 
 const DropArea: Component<{ onFilesDrop?: (args: { files: File[] }) => void }> = (props) => {
   const [isDragging, setIsDragging] = createSignal(false);
