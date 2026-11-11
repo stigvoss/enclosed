@@ -1,6 +1,7 @@
 import type { ConfigDefinition, ConfigDefinitionElement } from 'figue';
+import type { SiteConfig } from 'vitepress';
 import { isArray, isEmpty, isNil } from 'lodash-es';
-import { createMarkdownRenderer, type SiteConfig } from 'vitepress';
+import { createMarkdownRenderer } from 'vitepress';
 
 import { configDefinition } from '../../../app-server/src/modules/app/config/config';
 

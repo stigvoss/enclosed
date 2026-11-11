@@ -10,7 +10,7 @@
     "url": "https://github.com/CorentinTh/enclosed"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": "^22.22.2 || >=24.15.0"
   },
   "scripts": {
     "release": "bumpp --commit --tag --push --recursive",

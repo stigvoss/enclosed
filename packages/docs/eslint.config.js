@@ -6,6 +6,10 @@ export default antfu({
   },
 
   rules: {
+    // Would reformat most of the code base without improving it
+    'antfu/reasonable-newline': 'off',
+    // The catalog is not enforced in package.json files
+    'pnpm/json-enforce-catalog': 'off',
     // To allow export on top of files
     'ts/no-use-before-define': ['error', { allowNamedExports: true, functions: false }],
     'curly': ['error', 'all'],
@@ -17,5 +21,11 @@ export default antfu({
       varsIgnorePattern: '^_',
       caughtErrorsIgnorePattern: '^_',
     }],
+  },
+}, {
+  // VitePress data loaders rely on top-level await
+  files: ['src/data/**/*.ts'],
+  rules: {
+    'antfu/no-top-level-await': 'off',
   },
 });

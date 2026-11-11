@@ -1,3 +1,7 @@
+import type { Component, ParentComponent } from 'solid-js';
+import { DropdownMenu } from '@kobalte/core/dropdown-menu';
+import { A, useNavigate } from '@solidjs/router';
+import { Show } from 'solid-js';
 import { authStore } from '@/modules/auth/auth.store';
 import { buildTimeConfig } from '@/modules/config/config.constants';
 import { getConfig } from '@/modules/config/config.provider';
@@ -5,12 +9,9 @@ import { buildDocUrl } from '@/modules/docs/docs.models';
 import { useI18n } from '@/modules/i18n/i18n.provider';
 import { useNoteContext } from '@/modules/notes/notes.context';
 import { cn } from '@/modules/shared/style/cn';
+
 import { useThemeStore } from '@/modules/theme/theme.store';
 import { Button } from '@/modules/ui/components/button';
-import { DropdownMenu } from '@kobalte/core/dropdown-menu';
-
-import { A, useNavigate } from '@solidjs/router';
-import { type Component, type ParentComponent, Show } from 'solid-js';
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from '../components/dropdown-menu';
 
 const ThemeSwitcher: Component = () => {

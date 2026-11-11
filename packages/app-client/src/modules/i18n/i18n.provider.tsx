@@ -1,9 +1,9 @@
 import type { ParentComponent } from 'solid-js';
-import { locales } from '@/locales/locales';
 import * as i18n from '@solid-primitives/i18n';
 import { makePersisted } from '@solid-primitives/storage';
 import { merge } from 'lodash-es';
 import { createContext, createEffect, createResource, createSignal, Show, useContext } from 'solid-js';
+import { locales } from '@/locales/locales';
 import defaultDict from '../../locales/en.json';
 import { findMatchingLocale } from './i18n.models';
 

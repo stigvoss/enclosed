@@ -1,3 +1,8 @@
+import type { Component } from 'solid-js';
+import { safely } from '@corentinth/chisels';
+import { useNavigate } from '@solidjs/router';
+import { createSignal, Match, onCleanup, onMount, Show, Switch } from 'solid-js';
+import { renderSVG as renderQrCodeSvg } from 'uqr';
 import { authStore } from '@/modules/auth/auth.store';
 import { getConfig } from '@/modules/config/config.provider';
 import { getFileIcon } from '@/modules/files/files.models';
@@ -16,10 +21,6 @@ import { SwitchControl, SwitchLabel, SwitchThumb, Switch as SwitchUiComponent } 
 import { Tabs, TabsIndicator, TabsList, TabsTrigger } from '@/modules/ui/components/tabs';
 import { TextArea } from '@/modules/ui/components/textarea';
 import { TextField, TextFieldLabel, TextFieldRoot } from '@/modules/ui/components/textfield';
-import { safely } from '@corentinth/chisels';
-import { useNavigate } from '@solidjs/router';
-import { type Component, createSignal, Match, onCleanup, onMount, Show, Switch } from 'solid-js';
-import { renderSVG as renderQrCodeSvg } from 'uqr';
 import { FileUploaderButton } from '../components/file-uploader';
 import { NotePasswordField } from '../components/note-password-field';
 import { useNoteContext } from '../notes.context';

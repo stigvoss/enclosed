@@ -8,7 +8,7 @@ export const loggerMiddleware = createMiddleware(async (c, next) => {
 
   await next();
 
-  const durationMs = new Date().getTime() - requestedAt.getTime();
+  const durationMs = Date.now() - requestedAt.getTime();
 
   logger.info(
     {

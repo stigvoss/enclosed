@@ -6,6 +6,12 @@ export default antfu({
   },
 
   rules: {
+    // Would reformat most of the code base without improving it
+    'antfu/reasonable-newline': 'off',
+    // The catalog is not enforced in package.json files
+    'pnpm/json-enforce-catalog': 'off',
+    // Keeps the shadcn-style component types as upstream formats them
+    'style/operator-linebreak': 'off',
     // To allow export on top of files
     'ts/no-use-before-define': ['error', { allowNamedExports: true, functions: false }],
     'curly': ['error', 'all'],

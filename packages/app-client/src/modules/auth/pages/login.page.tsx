@@ -1,13 +1,14 @@
+import type { Component } from 'solid-js';
+import { safely } from '@corentinth/chisels';
+import { useNavigate } from '@solidjs/router';
+import { castArray, sample } from 'lodash-es';
+import { createSignal, onMount, Show } from 'solid-js';
 import { getConfig } from '@/modules/config/config.provider';
 import { useI18n } from '@/modules/i18n/i18n.provider';
 import { isHttpErrorWithStatusCode } from '@/modules/shared/http/http-errors';
 import { Alert, AlertDescription } from '@/modules/ui/components/alert';
 import { Button } from '@/modules/ui/components/button';
 import { TextField, TextFieldLabel, TextFieldRoot } from '@/modules/ui/components/textfield';
-import { safely } from '@corentinth/chisels';
-import { useNavigate } from '@solidjs/router';
-import { castArray, sample } from 'lodash-es';
-import { type Component, createSignal, onMount, Show } from 'solid-js';
 import { login } from '../auth.services';
 import { authStore } from '../auth.store';
 
