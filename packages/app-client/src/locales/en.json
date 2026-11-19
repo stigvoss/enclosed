@@ -117,6 +117,7 @@
   "view": {
     "loading": "Loading note...",
     "note-content": "Note content",
+    "word-wrap": "Word wrap",
     "assets": {
       "download": "Download",
       "download-all": "Download all files",

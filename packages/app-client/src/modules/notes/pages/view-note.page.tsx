@@ -14,6 +14,7 @@ import { useLocation, useNavigate, useParams } from '@solidjs/router';
 import JSZip from 'jszip';
 import { type Component, createSignal, type JSX, Match, onMount, Show, Switch } from 'solid-js';
 import { ImagePreviewDialog } from '../components/image-preview-dialog';
+import { useWordWrapPreference } from '../notes.preferences';
 import { fetchNoteById, fetchNoteExists } from '../notes.services';
 
 const RequestPasswordForm: Component<{ onPasswordEntered: (args: { password: string }) => void; getIsPasswordInvalid: () => boolean; setIsPasswordInvalid: (value: boolean) => void }> = (props) => {
@@ -73,6 +74,7 @@ export const ViewNotePage: Component = () => {
   const [getIsPasswordInvalid, setIsPasswordInvalid] = createSignal(false);
   const [fileAssets, setFileAssets] = createSignal<File[]>([]);
   const [previewedFile, setPreviewedFile] = createSignal<File | undefined>(undefined);
+  const { getIsWordWrapEnabled, toggleWordWrap } = useWordWrapPreference();
   const [isDownloadingAllLoading, setIsDownloadingAllLoading] = createSignal(false);
   const [getShowWarnForNoteDeletion, setShowWarnForNoteDeletion] = createSignal(false);
   const [getResolveWarnForNoteDeletion, setResolveWarnForNoteDeletion] = createSignal<(() => void) | null>(null);
@@ -323,12 +325,18 @@ export const ViewNotePage: Component = () => {
                   <div class="text-muted-foreground">
                     {t('view.note-content')}
                   </div>
-                  <CopyButton text={getDecryptedNote()!} variant="secondary" />
+                  <div class="flex items-center gap-2">
+                    <Button variant="secondary" onClick={toggleWordWrap} aria-pressed={getIsWordWrapEnabled()} data-test-id="toggle-word-wrap">
+                      <div classList={{ 'i-tabler-text-wrap': getIsWordWrapEnabled(), 'i-tabler-text-wrap-disabled': !getIsWordWrapEnabled() }} class="mr-2 text-lg" />
+                      {t('view.word-wrap')}
+                    </Button>
+                    <CopyButton text={getDecryptedNote()!} variant="secondary" />
+                  </div>
                 </div>
 
                 <Card class="w-full rounded-md shadow-sm mb-2">
                   <CardContent class="p-6 overflow-x-auto max-w-100%">
-                    <pre data-test-id="note-content-display">
+                    <pre data-test-id="note-content-display" classList={{ 'whitespace-pre-wrap break-words': getIsWordWrapEnabled() }}>
                       {getDecryptedNote()}
                     </pre>
                   </CardContent>
