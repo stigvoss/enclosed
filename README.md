@@ -4,6 +4,7 @@ This is a fork of [CorentinTh/enclosed](https://github.com/CorentinTh/enclosed).
 
 | Feature | Description | PR |
 | ------- | ----------- | -- |
+| Word wrap toggle | Long lines in a displayed note wrap by default; a toggle next to the copy button switches to horizontal scrolling, and the choice is remembered in the browser. | [#13](https://github.com/stigvoss/enclosed/pull/13) |
 | Inline image preview | Preview PNG, JPEG, WebP, GIF and AVIF attachments in an accessible modal dialog on the note view page, entirely in memory after client-side decryption. SVG is deliberately excluded. | [#1](https://github.com/stigvoss/enclosed/pull/1) |
 
 <p align="center">
